@@ -148,8 +148,7 @@ class HangGame:
             self.print_word()
             print("Well done! You won!")
             self.replay()
-        
-        if self.incorrect_guess_count < 7:
+        elif self.incorrect_guess_count < 7:
             self.print_word() 
             self.take_guess()
         else:

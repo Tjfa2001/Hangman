@@ -1,5 +1,4 @@
-#print("Hangman pictures imported successfully.")
-
+# Pictures of the gallows and the unlucky man that hangs there
 hang_pics = ['''
  +----+
       |
@@ -57,4 +56,4 @@ hang_pics = ['''
 /|\   |
 / \   |
       |
-+=====+ ''',]
++=====+ ''']
