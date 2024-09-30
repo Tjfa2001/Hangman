@@ -34,10 +34,7 @@ class HangGame:
     
     # Refreshes and starts the game
     def start_game(self):
-        self.incorrect_guess_count = 0
-        self.letters_in_word_to_guess = []
-        self.correct_guesses = []
-        self.guessed_letters = []
+        self.reset_all()
         word = self.pick_word()
         self.analyse_word(word)
         self.print_rules()
@@ -45,10 +42,17 @@ class HangGame:
         self.print_word()
         self.take_guess()
 
+    # Resets any details associated with previous play
+    def reset_all(self):
+        self.incorrect_guess_count = 0
+        self.letters_in_word_to_guess = []
+        self.correct_guesses = []
+        self.guessed_letters = []
+
     # Picks a random word for the player to guess    
     def pick_word(self):
-        possible_words = len(w.words)
-        random_number = rand.randrange(0,possible_words,1)
+        num_possible_words = len(w.words)
+        random_number = rand.randrange(0,num_possible_words,1)
         self.word = w.words[random_number]
         return self.word
     
@@ -76,9 +80,9 @@ class HangGame:
     # Prints the letters to the player
     def print_word(self):
         string = ""
-        for l in self.word:
-            if l.upper() in self.correct_guesses:
-                string = string + l.upper() + " "
+        for letter in self.word:
+            if letter.upper() in self.correct_guesses:
+                string = string + letter.upper() + " "
             else:
                 string = string + "_ "
         print(string)
