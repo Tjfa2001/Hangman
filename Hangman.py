@@ -2,6 +2,8 @@ import Pictures as p
 import Words as w
 import Rules as r
 import random as rand
+import tkinter as tk
+import keyboard as k
 
 class HangGame:
     
@@ -15,8 +17,44 @@ class HangGame:
     keyboard = ['Q','W','E','R','T','Y','U','I','O','P','.','A','S','D','F','G','H','J','K','L','.','Z','X','C','V','B','N','M','.']
     commands = ['A','R']
 
+    root = "none"
+
+    
     # Constructor for Hangman
     def __init__(self):
+        self.createGUI()
+        #root = tk.Tk()
+        #root.geometry("500x500")
+        #root.title("Hangman Game")
+        #entry = tk.Entry()
+        #entry.pack(padx=10,pady=10)
+        button = tk.Button(self.root,text="Press to start the game",command=self.start_game)
+        button.pack()
+
+        """
+        def get_entry_text(event):
+        # Get the text from the Entry widget
+            user_input = entry.get()
+            print("User typed:", user_input)
+            # Clear the entry after capturing the text (optional)
+            entry.delete(0, tk.END)
+        
+        # Bind the Enter key (Return key) to the function
+        entry.bind("<Return>", get_entry_text)
+
+        # Run the Tkinter main loop
+        root.mainloop()
+        """
+
+    def createGUI(self):
+        root = tk.Tk()
+        self.root = root
+        root.geometry("500x500")
+        root.title("Hangman Game")
+        entry = tk.Entry(root)
+        entry.pack(padx=50,pady=50)
+        root.mainloop()
+        """
         correctInput = False
 
         # Lets user decide if they want to start a game
@@ -31,7 +69,8 @@ class HangGame:
                 print("Exiting...")
             else:
                 print("Incorrect input")
-    
+        """
+
     # Refreshes and starts the game
     def start_game(self):
         self.reset_all()
